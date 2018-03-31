@@ -7,7 +7,7 @@ var svg = d3.select("body").append('svg').attr({
 // var fileList = ["WikiNews","Huffington","CrooksAndLiars","EmptyWheel","Esquire","FactCheck"
 //                 ,"VIS_papers","IMDB","PopCha","Cards_PC","Cards_Fries"]
 
-var fileList = ["EmptyWheel","VIS_papers"]
+var fileList = ["WikiNews", "Huffington", "EmptyWheel","VIS_papers"]
 
 var initialDataset = "EmptyWheel";
 var categories = ["person","location","organization","miscellaneous"];
@@ -69,7 +69,7 @@ function loadData(){
         categories = ["person","location","organization","miscellaneous"];
         width = 1000; 
         height = 500;
-        loadEmptyWheelData(draw);
+        loadBlogPostData(draw);
     } 
 }
 function loadNewData(event) {
