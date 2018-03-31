@@ -14,6 +14,7 @@ var categories = ["person","location","organization","miscellaneous"];
 
 var fileName;
 
+
 addDatasetsOptions();
 function addDatasetsOptions() {
     var select = document.getElementById("datasetsSelect");   
@@ -29,7 +30,22 @@ function addDatasetsOptions() {
     fileName = document.getElementById("datasetsSelect").value;
     loadData();
 }
+var spinner;
 function loadData(){
+    // START: loader spinner settings ****************************
+    var opts = {
+        lines: 25, // The number of lines to draw
+        length: 15, // The length of each line
+        width: 5, // The line thickness
+        radius: 25, // The radius of the inner circle
+        color: '#000', // #rgb or #rrggbb or array of colors
+        speed: 2, // Rounds per second
+        trail: 50, // Afterglow percentage
+        className: 'spinner', // The CSS class to assign to the spinner
+    };
+    var target = document.getElementById('loadingSpinner');
+    spinner = new Spinner(opts).spin(target);
+    // END: loader spinner settings ****************************
     fileName = "data/"+fileName+".tsv"; // Add data folder path
     if (fileName.indexOf("Cards_Fries")>=0){
         categories = ["increases_activity", "decreases_activity"];
@@ -294,6 +310,7 @@ function draw(data){
         'alignment-baseline': 'middle',
         dx: 8
     });
+    spinner.stop();
 };
 function styleAxis(axisNodes){
     axisNodes.selectAll('.domain').attr({
