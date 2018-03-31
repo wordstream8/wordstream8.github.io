@@ -22,8 +22,8 @@
             var ws = d3.layout.wordStream()
             .size([width, height])
             .interpolate(interpolation)
-            .fontScale(d3.scale.pow().exponent(2))
-            //.fontScale(d3.scale.linear())
+            //.fontScale(d3.scale.pow().exponent(2))
+            .fontScale(d3.scale.linear())
             .minFontSize(4)
             .maxFontSize(36)
             .data(data);
