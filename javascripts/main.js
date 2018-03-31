@@ -7,7 +7,7 @@ var svg = d3.select("body").append('svg').attr({
 // var fileList = ["WikiNews","Huffington","CrooksAndLiars","EmptyWheel","Esquire","FactCheck"
 //                 ,"VIS_papers","IMDB","PopCha","Cards_PC","Cards_Fries"]
 
-var fileList = ["WikiNews", "Huffington", "CrooksAndLiars", "EmptyWheel","Esquire","FactCheck", "VIS_papers"]
+var fileList = ["WikiNews", "Huffington", "CrooksAndLiars", "EmptyWheel","Esquire","FactCheck", "VIS_papers", "IMDB"]
 
 var initialDataset = "EmptyWheel";
 var categories = ["person","location","organization","miscellaneous"];
@@ -57,7 +57,10 @@ function loadData(){
         categories = ["Comedy","Drama","Action", "Fantasy", "Horror"];
     }
     else if (fileName.indexOf("IMDB")>=0){
-        categories = ["Comedy","Drama","Action"];
+        categories = ["Author Names"];
+        width = 1000; 
+        height = 300;
+        loadIEEEVisData(draw);
     }
     else if (fileName.indexOf("VIS")>=0){
         categories = ["Author Names"];
