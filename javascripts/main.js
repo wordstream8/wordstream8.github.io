@@ -7,7 +7,7 @@ var svg = d3.select("body").append('svg').attr({
 // var fileList = ["WikiNews","Huffington","CrooksAndLiars","EmptyWheel","Esquire","FactCheck"
 //                 ,"VIS_papers","IMDB","PopCha","Cards_PC","Cards_Fries"]
 
-var fileList = ["WikiNews", "Huffington", "CrooksAndLiars", "EmptyWheel","Esquire","FactCheck", "VIS_papers", "IMDB"]
+var fileList = ["WikiNews", "Huffington", "CrooksAndLiars", "EmptyWheel","Esquire","FactCheck", "VIS_papers", "IMDB","PopCha"]
 
 var initialDataset = "EmptyWheel";
 var categories = ["person","location","organization","miscellaneous"];
@@ -55,23 +55,18 @@ function loadData(){
     }
     else if (fileName.indexOf("PopCha")>=0){
         categories = ["Comedy","Drama","Action", "Fantasy", "Horror"];
+        loadAuthorData(draw);
     }
     else if (fileName.indexOf("IMDB")>=0){
-        categories = ["Author Names"];
-        width = 1000; 
-        height = 300;
-        loadIEEEVisData(draw);
+        categories = ["Comedy","Drama","Action", "Family"];
+        loadAuthorData(draw);
     }
     else if (fileName.indexOf("VIS")>=0){
-        categories = ["Author Names"];
-        width = 1000; 
-        height = 300;
-        loadIEEEVisData(draw);
+        categories = categories = ["Vis","VAST","InfoVis","SciVis"];
+        loadAuthorData(draw);
     }
     else{
         categories = ["person","location","organization","miscellaneous"];
-        width = 1000; 
-        height = 500;
         loadBlogPostData(draw);
     } 
 }
