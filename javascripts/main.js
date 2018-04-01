@@ -7,7 +7,7 @@ var svg = d3.select("body").append('svg').attr({
 // var fileList = ["WikiNews","Huffington","CrooksAndLiars","EmptyWheel","Esquire","FactCheck"
 //                 ,"VIS_papers","IMDB","PopCha","Cards_PC","Cards_Fries"]
 
-var fileList = ["WikiNews", "Huffington", "CrooksAndLiars", "EmptyWheel","Esquire","FactCheck", "VIS_papers", "IMDB","PopCha"]
+var fileList = ["WikiNews", "Huffington", "CrooksAndLiars", "EmptyWheel","Esquire","FactCheck", "VIS_papers", "IMDB","PopCha","Cards_PC","Cards_Fries"]
 
 var initialDataset = "EmptyWheel";
 var categories = ["person","location","organization","miscellaneous"];
@@ -49,9 +49,11 @@ function loadData(){
     fileName = "data/"+fileName+".tsv"; // Add data folder path
     if (fileName.indexOf("Cards_Fries")>=0){
         categories = ["increases_activity", "decreases_activity"];
+        loadAuthorData(draw);
     }
     else if (fileName.indexOf("Cards_PC")>=0){
         categories = ["adds_modification", "removes_modification", "increases","decreases", "binds", "translocation"];
+        loadAuthorData(draw);
     }
     else if (fileName.indexOf("PopCha")>=0){
         categories = ["Comedy","Drama","Action", "Fantasy", "Horror"];
